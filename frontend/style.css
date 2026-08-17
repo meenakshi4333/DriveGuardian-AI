@@ -1,0 +1,878 @@
+/* =========================================================
+   DriveGuardian AI
+   Complete Dashboard CSS
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    background: #111827;
+    color: white;
+
+    padding: 24px 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: #cbd5e1;
+    font-size: 15px;
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+
+    background: #22c55e;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD
+   ========================================================= */
+
+.dashboard {
+    width: 90%;
+    max-width: 1450px;
+
+    margin: 35px auto;
+
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   CAMERA SECTION
+   ========================================================= */
+
+.camera-section,
+.status-section {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    font-size: 23px;
+}
+
+#cameraStatus {
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================================================
+   CAMERA CONTAINER
+   ========================================================= */
+
+.camera-container {
+    width: 100%;
+}
+
+.camera-placeholder {
+    position: relative;
+
+    width: 100%;
+
+    height: 440px;
+
+    background: #111827;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+#videoFeed {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+
+#cameraMessage {
+    text-align: center;
+
+    color: white;
+}
+
+.camera-icon {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+#cameraMessage h3 {
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+#cameraMessage p {
+    color: #cbd5e1;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CAMERA CONTROLS
+   ========================================================= */
+
+.camera-controls {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.btn {
+    border: none;
+
+    padding: 14px 24px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.start-btn {
+    background: #16a34a;
+}
+
+.start-btn:hover {
+    background: #15803d;
+
+    transform: translateY(-1px);
+}
+
+.stop-btn {
+    background: #dc2626;
+}
+
+.stop-btn:hover {
+    background: #b91c1c;
+
+    transform: translateY(-1px);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   DRIVER STATUS
+   ========================================================= */
+
+.status-section h2 {
+    font-size: 23px;
+
+    margin-bottom: 20px;
+}
+
+.driver-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 22px;
+
+    border-radius: 16px;
+
+    border: 2px solid;
+
+    margin-bottom: 22px;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.status-icon {
+    width: 55px;
+    height: 55px;
+
+    min-width: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    color: white;
+}
+
+.driver-status h3 {
+    font-size: 24px;
+
+    margin-bottom: 5px;
+}
+
+.driver-status p {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SAFE
+   ========================================================= */
+
+.driver-status.safe {
+    background: #dcfce7;
+
+    border-color: #22c55e;
+
+    color: #166534;
+}
+
+.driver-status.safe .status-icon {
+    background: #22c55e;
+}
+
+
+/* =========================================================
+   WARNING
+   ========================================================= */
+
+.driver-status.warning {
+    background: #fef3c7;
+
+    border-color: #f59e0b;
+
+    color: #92400e;
+}
+
+.driver-status.warning .status-icon {
+    background: #f59e0b;
+}
+
+
+/* =========================================================
+   CRITICAL
+   ========================================================= */
+
+.driver-status.critical {
+    background: #fee2e2;
+
+    border-color: #ef4444;
+
+    color: #991b1b;
+}
+
+.driver-status.critical .status-icon {
+    background: #ef4444;
+}
+
+
+/* =========================================================
+   INFO CARD
+   ========================================================= */
+
+.info-card {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+}
+
+.card-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    font-size: 18px;
+}
+
+.score-container {
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+}
+
+.score {
+    font-size: 45px;
+
+    font-weight: 700;
+
+    color: #16a34a;
+}
+
+.score-container span {
+    color: #64748b;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   RISK PROGRESS
+   ========================================================= */
+
+.progress-bar {
+    width: 100%;
+
+    height: 12px;
+
+    background: #e5e7eb;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+
+    width: 0%;
+
+    background: #22c55e;
+
+    border-radius: 20px;
+
+    transition:
+        width 0.4s ease,
+        background 0.3s ease;
+}
+
+
+/* =========================================================
+   DETECTION GRID
+   ========================================================= */
+
+.detection-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+.detection-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    background: white;
+
+    min-height: 75px;
+}
+
+.detection-icon {
+    font-size: 25px;
+
+    min-width: 32px;
+
+    text-align: center;
+}
+
+.detection-card h4 {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+.detection-card p {
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #0f172a;
+}
+
+
+/* =========================================================
+   ALERTS SECTION
+   ========================================================= */
+
+.alerts-section {
+    width: 90%;
+
+    max-width: 1450px;
+
+    margin: 0 auto 30px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+.alerts-section .section-title {
+    margin-bottom: 20px;
+}
+
+#clearAlerts {
+    border: none;
+
+    background: #e2e8f0;
+
+    color: #0f172a;
+
+    padding: 9px 16px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+#clearAlerts:hover {
+    background: #cbd5e1;
+}
+
+
+/* =========================================================
+   ALERT CONTAINER
+   ========================================================= */
+
+.alert-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-height: 360px;
+
+    overflow-y: auto;
+
+    padding-right: 5px;
+}
+
+
+/* =========================================================
+   NO ALERT
+   ========================================================= */
+
+.no-alert {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #64748b;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   COMMON ALERT
+   ========================================================= */
+
+.alert {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px 18px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    border-left: 5px solid;
+
+    animation: alertSlideIn 0.3s ease;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.alert:hover {
+    transform: translateX(3px);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.alert-icon {
+    font-size: 18px;
+
+    min-width: 22px;
+
+    text-align: center;
+}
+
+.alert-time {
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.alert-message {
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   WARNING ALERT - YELLOW
+   ========================================================= */
+
+.alert-warning {
+    background: #fef3c7;
+
+    border-left-color: #f59e0b;
+
+    color: #92400e;
+}
+
+
+/* =========================================================
+   HIGH ALERT - ORANGE
+   ========================================================= */
+
+.alert-high {
+    background: #ffedd5;
+
+    border-left-color: #f97316;
+
+    color: #9a3412;
+}
+
+
+/* =========================================================
+   CRITICAL ALERT - RED
+   ========================================================= */
+
+.alert-critical {
+    background: #fee2e2;
+
+    border-left-color: #ef4444;
+
+    color: #991b1b;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ALERT ICON COLORS
+   ========================================================= */
+
+.alert-warning .alert-icon {
+    color: #d97706;
+}
+
+.alert-high .alert-icon {
+    color: #ea580c;
+}
+
+.alert-critical .alert-icon {
+    color: #dc2626;
+}
+
+
+/* =========================================================
+   ALERT ANIMATION
+   ========================================================= */
+
+@keyframes alertSlideIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ALERT SCROLLBAR
+   ========================================================= */
+
+.alert-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.alert-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+
+    border-radius: 10px;
+}
+
+.alert-container::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+
+    border-radius: 10px;
+}
+
+.alert-container::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+
+/* =========================================================
+   TRIP STATISTICS
+   ========================================================= */
+
+.statistics-section {
+    width: 90%;
+
+    max-width: 1450px;
+
+    margin: 0 auto 30px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+.statistics-section h2 {
+    font-size: 23px;
+
+    margin-bottom: 20px;
+}
+
+.statistics-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.stat-card {
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    background: white;
+}
+
+.stat-card h3 {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+.stat-card p {
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: #1e293b;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .statistics-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .dashboard,
+    .alerts-section,
+    .statistics-section {
+        width: 94%;
+    }
+
+    .camera-placeholder {
+        height: 320px;
+    }
+
+    .detection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .statistics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .camera-controls {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .alert {
+        flex-wrap: wrap;
+    }
+}

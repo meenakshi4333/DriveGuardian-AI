@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>DriveGuardian AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================== -->
+    <!-- HEADER -->
+    <!-- ========================================== -->
+
+    <header class="header">
+
+        <div>
+
+            <h1>
+                🚗 DriveGuardian AI
+            </h1>
+
+            <p>
+                Intelligent Driver Monitoring & Road Safety System
+            </p>
+
+        </div>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            System Ready
+
+        </div>
+
+    </header>
+
+
+    <!-- ========================================== -->
+    <!-- MAIN DASHBOARD -->
+    <!-- ========================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- ========================================== -->
+        <!-- CAMERA SECTION -->
+        <!-- ========================================== -->
+
+        <section class="camera-section">
+
+
+            <div class="section-title">
+
+                <h2>
+                    Live Driver Monitoring
+                </h2>
+
+                <span id="cameraStatus">
+                    Camera Offline
+                </span>
+
+            </div>
+
+
+            <div class="camera-container">
+
+
+                <div class="camera-placeholder">
+
+
+                    <img
+                        id="videoFeed"
+                        src=""
+                        alt="Live Driver Camera"
+                    >
+
+
+                    <div id="cameraMessage">
+
+
+                        <div class="camera-icon">
+                            📷
+                        </div>
+
+
+                        <h3>
+                            Camera Feed
+                        </h3>
+
+
+                        <p>
+                            Click Start Detection to activate the camera
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- CAMERA CONTROLS -->
+
+            <div class="camera-controls">
+
+
+                <button
+                    id="startBtn"
+                    class="btn start-btn"
+                >
+                    ▶ Start Detection
+                </button>
+
+
+                <button
+                    id="stopBtn"
+                    class="btn stop-btn"
+                >
+                    ■ Stop Detection
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ========================================== -->
+        <!-- DRIVER STATUS SECTION -->
+        <!-- ========================================== -->
+
+        <section class="status-section">
+
+
+            <h2>
+                Driver Status
+            </h2>
+
+
+            <!-- DRIVER CURRENT STATUS -->
+
+            <div
+                class="driver-status safe"
+                id="driverStatus"
+            >
+
+
+                <div class="status-icon">
+                    ✓
+                </div>
+
+
+                <div>
+
+                    <h3 id="statusText">
+                        STOPPED
+                    </h3>
+
+                    <p id="statusMessage">
+                        Driver monitoring has stopped
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ========================================== -->
+            <!-- RISK SCORE -->
+            <!-- ========================================== -->
+
+            <div class="info-card">
+
+
+                <div class="card-header">
+
+                    <h3>
+                        Risk Score
+                    </h3>
+
+                    <span>
+                        📊
+                    </span>
+
+                </div>
+
+
+                <div class="score-container">
+
+                    <div
+                        class="score"
+                        id="riskScore"
+                    >
+                        0
+                    </div>
+
+                    <span>
+                        / 100
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress"
+                        id="riskProgress"
+                    ></div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ========================================== -->
+            <!-- DETECTION INFORMATION -->
+            <!-- ========================================== -->
+
+            <div class="detection-grid">
+
+
+                <!-- FACE -->
+
+                <div class="detection-card">
+
+                    <span class="detection-icon">
+                        👤
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Face
+                        </h4>
+
+                        <p id="faceStatus">
+                            Not Detected
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EYES -->
+
+                <div class="detection-card">
+
+                    <span class="detection-icon">
+                        👁️
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Eyes
+                        </h4>
+
+                        <p id="eyeStatus">
+                            Unknown
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DROWSINESS -->
+
+                <div class="detection-card">
+
+                    <span class="detection-icon">
+                        😴
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Drowsiness
+                        </h4>
+
+                        <p id="drowsinessStatus">
+                            Normal
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- YAWN -->
+
+                <div class="detection-card">
+
+                    <span class="detection-icon">
+                        😮
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Yawns
+                        </h4>
+
+                        <p id="yawnCount">
+                            0
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- HEAD -->
+
+                <div class="detection-card">
+
+                    <span class="detection-icon">
+                        ↔️
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Head Position
+                        </h4>
+
+                        <p id="headStatus">
+                            Forward
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MOBILE PHONE -->
+
+                <div class="detection-card">
+
+                    <span class="detection-icon">
+                        📱
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Mobile Phone
+                        </h4>
+
+                        <p id="phoneStatus">
+                            Not Detected
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================== -->
+    <!-- ALERTS SECTION -->
+    <!-- ========================================== -->
+
+    <section class="alerts-section">
+
+
+        <div class="section-title">
+
+
+            <h2>
+                ⚠️ Recent Alerts
+            </h2>
+
+
+            <button id="clearAlerts">
+                Clear
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="alertContainer"
+            class="alert-container"
+        >
+
+            <div class="no-alert">
+                No alerts detected
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================================== -->
+    <!-- TRIP STATISTICS -->
+    <!-- ========================================== -->
+
+    <section class="statistics-section">
+
+
+        <h2>
+            📊 Trip Statistics
+        </h2>
+
+
+        <div class="statistics-grid">
+
+
+            <!-- TRIP DURATION -->
+
+            <div class="stat-card">
+
+                <h3>
+                    Trip Duration
+                </h3>
+
+                <p id="tripDuration">
+                    00:00:00
+                </p>
+
+            </div>
+
+
+
+            <!-- EYE EVENTS -->
+
+            <div class="stat-card">
+
+                <h3>
+                    Eye Closure Events
+                </h3>
+
+                <p id="eyeEvents">
+                    0
+                </p>
+
+            </div>
+
+
+
+            <!-- HEAD EVENTS -->
+
+            <div class="stat-card">
+
+                <h3>
+                    Head Turn Events
+                </h3>
+
+                <p id="headEvents">
+                    0
+                </p>
+
+            </div>
+
+
+
+            <!-- MOBILE EVENTS -->
+
+            <div class="stat-card">
+
+                <h3>
+                    Mobile Usage
+                </h3>
+
+                <p id="phoneEvents">
+                    0
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================================== -->
+    <!-- FOOTER -->
+    <!-- ========================================== -->
+
+    <footer>
+
+
+        <p>
+            DriveGuardian AI © 2026
+        </p>
+
+
+        <p>
+            AI-Powered Driver Safety Monitoring
+        </p>
+
+
+    </footer>
+
+
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
